@@ -15,13 +15,43 @@ https://github.com/htseq/htseq/tree/main/example_data
 
 ## Execution
 
-view -bS input.sam -o output.bam
-
-samtools sort -n name.bam -o output.bam 
-
-htseq-count -r name -f sam output.bam name.annotation.gtf > output.count
+using dummy data
 
 
+samtools sort manual
 
+http://www.htslib.org/doc/samtools-sort.html
+
+```bash
+samtools sort -n bamfile_no_qualities.bam bamfile_no_qualities_sorted_by_name
+```
+
+htseq-count manual
+
+
+https://htseq.readthedocs.io/en/release_0.11.1/count.html
+
+
+```bash
+htseq-count -r name bamfile_no_qualities_sorted_by_name.bam bamfile_no_qualities.gtf > results.count
+```
+
+
+## From the raw count file into normalized count matrix
+
+DESeqDataSetFromHTSeqCount
+
+check this blog:
+
+https://www.jieandze1314.com/post/cnposts/108/
+
+https://bioconductor.org/packages/release/data/experiment/html/pasilla.html
+
+
+
+# R language hello world
+
+print("Hello, World!")
 
 ## Drawing
+
