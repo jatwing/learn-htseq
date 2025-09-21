@@ -74,6 +74,16 @@ http://www.htslib.org/doc/samtools-sort.html
 samtools sort -n bamfile_no_qualities.bam bamfile_no_qualities_sorted_by_name
 ```
 
+
+## prepare for step 4, gene expression quantification
+
+```bash
+
+## version Version: 1.21
+## Usage: samtools sort [options...] [in.bam]
+samtools sort -n bamfile_no_qualities.bam -o bamfile_no_qualities_sorted_by_name.bam
+```
+
 htseq-count manual
 
 
@@ -81,9 +91,21 @@ https://htseq.readthedocs.io/en/release_0.11.1/count.html
 
 
 ```bash
+
+# usage: htseq-count [-h] [--version] [-f {sam,bam,auto}] [-r {pos,name}] [--max-reads-in-buffer MAX_BUFFER_SIZE] [-s {yes,no,reverse}] [-a MINAQUAL] [-t FEATURE_TYPE]
+ #                  [-i IDATTR] [--additional-attr ADDITIONAL_ATTRIBUTES] [--add-chromosome-info] [-m {union,intersection-strict,intersection-nonempty}]
+  #                 [--nonunique {none,all,fraction,random}] [--secondary-alignments {score,ignore}] [--supplementary-alignments {score,ignore}] [-o SAMOUTS]
+   #                [-p {SAM,BAM,sam,bam}] [-d OUTPUT_DELIMITER] [-c OUTPUT_FILENAME] [--counts-output-sparse] [--append-output] [-n NPROCESSES]
+    #               [--feature-query FEATURE_QUERY] [-q] [--with-header]
+   #                samfilenames [samfilenames ...] featuresfilename
+
 htseq-count -r name bamfile_no_qualities_sorted_by_name.bam bamfile_no_qualities.gtf > results.count
 ```
 
+
+count is only for one group, in reality, needs several groups
+
+sorting by names and counting for multiple times.
 
 ## From the raw count file into normalized count matrix
 
@@ -100,6 +122,11 @@ https://bioconductor.org/packages/release/data/experiment/html/pasilla.html
 # R language hello world
 
 print("Hello, World!")
+
+## step 4.5 raw count matrix into normalized count matrix
+
+python ./raw-into-normalize-count.py 
+
 
 ## Drawing
 
