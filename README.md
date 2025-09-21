@@ -1,5 +1,53 @@
 ## Installation
 
+on the Terminal, interact with machine give orders to it
+
+1. on the terminal install brew, on website https://brew.sh/
+
+home brew is a software manager for MacOS
+
+2. use brew to install vscode
+
+on the terminal
+
+brew install --cask visual-studio-code
+
+VScode has File Explorer and Terminal
+
+3. install anaconda
+
+brew install --cask anaconda
+
+4. bind anaconda and zsh (Terminal)
+
+change .zshrc file, add this line
+
+export PATH="/usr/local/anaconda3/bin:$PATH"
+
+on the Terminal path
+
+source .zshrc
+
+conda init zsh
+
+
+
+## add channels
+
+conda config --add channels conda-forge
+conda config --add channels bioconda
+
+## Install Pacakages
+
+conda install subread
+conda install python=3.12
+conda install htseq
+conda install samtools
+
+
+our key goal is to create an environment for the user to use the softwares (including htseq and samtools) managed by Conda
+Also they could see the files in the File Explorer and they can edit the files and run the command via Terminal.
+
 
 ## Official Website
 
